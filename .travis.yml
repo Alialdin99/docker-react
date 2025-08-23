@@ -1,0 +1,10 @@
+sudo: required
+
+services :
+  - docker
+
+before_install:
+  - docker build -t alialdeen/docker-react -f Dockfile.dev .
+
+script: 
+  - docker run -e CI=true alialdeen/docker-react npm run test
